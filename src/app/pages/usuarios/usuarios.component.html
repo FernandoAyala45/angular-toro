@@ -1,0 +1,30 @@
+<h2>Gestión de Usuarios</h2>
+
+<form [formGroup]="form" (ngSubmit)="guardarUsuario()" style="margin-bottom: 1rem;">
+  <input formControlName="nombre" placeholder="Nombre">
+  <input formControlName="correo" placeholder="Correo">
+  <button type="submit">{{ editando ? 'Actualizar' : 'Agregar' }}</button>
+  <button type="button" *ngIf="editando" (click)="cancelarEdicion()">Cancelar</button>
+</form>
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Correo</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of usuarios">
+      <td>{{ usuario.id }}</td>
+      <td>{{ usuario.nombre }}</td>
+      <td>{{ usuario.correo }}</td>
+      <td>
+        <button (click)="editarUsuario(usuario)">Editar</button>
+        <button (click)="eliminarUsuario(usuario.id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
