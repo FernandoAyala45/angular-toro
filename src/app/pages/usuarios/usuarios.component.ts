@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { UsuarioService, Usuario } from '../../services/usuario.service';
 
+let variable = 0; // Variable para evitar errores de importación circular
+
 @Component({
   selector: 'app-usuarios',
   standalone: true,
